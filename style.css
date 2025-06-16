@@ -1,0 +1,446 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root{
+    --vidro: rgba(255,255,255,0.1);
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 20px;
+
+  }
+  .menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+    padding: 1rem;
+  }
+  .menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-right: 2rem;
+  }
+
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #333;
+  }
+
+  /* Conteúdo */
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    padding-top: 70px; /* dá uma folga pra não ficar grudado */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sobre {
+    margin-top: 6rem; /* aumenta o espaço acima da seção Sobre */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+  h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 3rem;
+      color: #2c3e50;
+      text-align: center;
+       margin-bottom: 20rem;}
+    
+
+  /* Footer */
+  footer {
+    background-color: #111;
+    color: #f1f1f1;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .logo {
+      height: 40px;
+    }
+}
+.navegacao {
+   position: fixed;
+  top: 0;
+  left: 0;
+  background: #f8f8f880;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.menu-link::after{
+  content: "";
+  height: 2px;
+  width: 0%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, rgb(255, 202, 104), rgb(255, 171, 15));
+  transition: width 0.5s ease;
+}
+.menu-link:hover::after {
+  width: 100%;
+}
+/* Sidebar padrão escondida */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: auto;
+   right: 0; /* se quiser que abra da direita */
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 2000;
+  padding-top: 60px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+/* Botão para fechar */
+.sidebar .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+}
+
+/* Estilo dos links */
+.sidebar a {
+ display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+}
+
+/* Estilo do botão do menu */
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+  margin-right: 20px;
+}
+
+/* Mostrar menu-button só em telas pequenas */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .menu {
+    display: none; /* Oculta o menu fixo normal */
+  }
+}
+.contato {
+  padding: 6rem 2rem;
+}
+
+.contato-titulo {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.formulario-contato {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(87, 83, 83, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border: 1px solid var(--vidro);
+  border-radius: 16px;
+}
+
+.campo-form {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(2, 1, 1, 0.05);
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  border: 1px solid var(--vidro);
+  outline: none;
+}
+.campo-form:focus {
+  border-color: orange;
+  box-shadow: 0 0 10px rgba(255, 164, 28, 0.3);
+}
+
+.grupo-form {
+  margin-bottom: 1.5rem;
+}
+.botao-form {
+  color: white;
+  background: linear-gradient(45deg, orange, rgb(255, 145, 0));
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.5 ease;
+}
+.botao-form:hover {
+  transform: translateY(-4px);
+}
+.rodape {
+  padding: 2rem;  /* Espaçamento interno (margem interna) */
+  text-align: center;  /* Centraliza o texto no rodapé */
+  background-color: rgba(0, 0, 0, 0.05);  /* Cor de fundo com transparência */
+  backdrop-filter: blur(8px);  /* Aplica um desfoque de fundo no rodapé */
+  border-top: 1px solid var(--vidro);  /* Borda superior do rodapé */
+  color: black;  /* Cor do texto no rodapé */
+  font-size: 0.9rem;  /* Tamanho da fonte */
+  margin-top: 0.1rem;  /* Margem superior para dar um espaço entre o conteúdo principal e o rodapé */
+}
+.rodape p {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;  /* Distância entre os ícones */
+  margin-top: 1rem;
+}
+
+.icone-rede i {
+  font-size: 2rem; /* Tamanho dos ícones */
+  color: rgb(255, 145, 0); /* Cor dos ícones */
+  transition: transform 0.3s ease; /* Efeito de transição */
+}
+
+.icone-rede:hover i {
+  transform: scale(1.2); /* Efeito de aumento no hover */
+}
+.localizacao {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85); /* claro por padrão */
+  color: black;
+  padding: 2rem 1rem;
+}
+
+
+.localizacao h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.localizacao p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mapa-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.);
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.produtos {
+  text-align: center;
+}
+
+.grid-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.categoria {
+  background: white;
+  border: 2px solid orange;
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.categoria:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.categoria p {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.icone-categoria {
+  font-size: 2.5rem;
+  color: orange;
+}
+/* Em telas ≤768px: esconde o menu horizontal, mostra o botão */
+@media (max-width: 700px) {
+  .menu {
+    display: none;       /* oculta o UL normal */
+  }
+  .menu-button {
+    display: block;      /* exibe o botão hambúrguer */
+    font-size: 2.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+}
+#inicio, #sobre, #produtos, #localizacao, #contato {
+  scroll-margin-top: 75px;
+}
+#toggle-mode {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  margin-left: 10px;
+  color: inherit;
+}
+
+/* Estilo de modo escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+body.dark-mode .menu-link,
+body.dark-mode .sidebar a,
+body.dark-mode .rodape,
+body.dark-mode .sobre,
+body.dark-mode .contato-titulo,
+body.dark-mode .categoria p {
+  color: #f0f0f0;
+}
+body.dark-mode .navegacao {
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+body.dark-mode .sidebar {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .formulario-contato {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .campo-form {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+body.dark-mode .rodape {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ddd;
+}
+
+body.dark-mode .localizacao {
+  background-color: #121212; /* fundo escuro no dark mode */
+  color: white;
+}
+body.dark-mode .categoria {
+  background-color: #222;
+  border-color: orange;
+}
+
+body.dark-mode .icone-categoria {
+  color: orange;
+}
+
+body.dark-mode .campo-form::placeholder {
+  color: #ccc;
+}
+
+body.dark-mode .botao-form {
+  background: linear-gradient(45deg, #ffa726, #fb8c00);
+  color: white;
+}
+
+#toggle-mode {
+  color: inherit;
+}
+.grid-produtos a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* remove o sublinhado */
+  color: inherit;         /* herda a cor do texto do elemento pai */
+}
